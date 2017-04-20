@@ -1,4 +1,5 @@
 import React from 'react';
+import { intlShape } from 'react-intl';
 import styles from './graph_bar.css';
 
 /**
@@ -71,10 +72,11 @@ class GraphBar extends React.Component {
   }
 
   render() {
+    const propIntl = this.props.intl;
     return (
       <div className={styles.container} style={this.getContainerHeight()}>
         <div className={styles.percent} style={this.getPercentStyle()}>
-          {`${this.props.percent}%`}
+          {`${propIntl.formatNumber(this.props.percent)}%`}
         </div>
         <div className={styles.bar} style={this.getBarStyle()} />
       </div>
@@ -85,6 +87,7 @@ GraphBar.propTypes = {
   barColor: React.PropTypes.string.isRequired,
   percent: React.PropTypes.number,
   width: React.PropTypes.number,
+  intl: intlShape,
 };
 
 export default GraphBar;

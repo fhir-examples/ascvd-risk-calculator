@@ -1,4 +1,5 @@
 import React from 'react';
+import { intlShape } from 'react-intl';
 import ASCVDRisk from '../../app/load_fhir_data';
 import PatientBanner from '../../components/PatientBanner/banner';
 import Header from '../../components/Header/header';
@@ -65,6 +66,8 @@ class App extends React.Component {
           updateChangedProperty={this.updateChangedProperty}
           options={this.state.options}
           removeOption={this.removeOption}
+          intl={this.props.intl}
+          currentLocale={this.props.currentLocale}
         />
       );
     } else if (this.state.view === 'Risk Factors') {
@@ -77,11 +80,13 @@ class App extends React.Component {
           lifetimeBest={ASCVDRisk.computeLowestLifetime()}
           options={this.state.options}
           removeOption={this.removeOption}
+          intl={this.props.intl}
+          currentLocale={this.props.currentLocale}
         />
       );
     }
     return (
-      <Recommendations />
+      <Recommendations intl={this.props.intl} />
     );
   }
 
@@ -137,16 +142,36 @@ class App extends React.Component {
   }
 
   render() {
+    const propIntl = this.props.intl;
+    const messages = propIntl.messages;
     return (
       <div>
         <PatientBanner
           hideBanner={ASCVDRisk.hideDemoBanner}
           name={`${ASCVDRisk.patientInfo.firstName} ${ASCVDRisk.patientInfo.lastName}`}
-          age={ASCVDRisk.patientInfo.age}
-          gender={ASCVDRisk.patientInfo.gender}
-          dob={ASCVDRisk.patientInfo.dateOfBirth}
+          age={propIntl.formatMessage(messages.bannerYears,
+            { age: propIntl.formatNumber(ASCVDRisk.patientInfo.age) })}
+          gender={ASCVDRisk.patientInfo.gender === 'male' ?
+            propIntl.formatMessage(messages.bannerMale) :
+            propIntl.formatMessage(messages.bannerFemale)}
+          dobPrompt={propIntl.formatMessage(messages.bannerDOB)}
+          dob={propIntl.formatDate(new Date(ASCVDRisk.patientInfo.dateOfBirth), {
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric',
+          })}
         />
-        <Header header={'ASCVD Risk Calculator'} />
+        <Header
+          header={propIntl.formatMessage(messages.appHeader)}
+          languagePrompt={propIntl.formatMessage(messages.language)}
+          locales={[
+            { name: propIntl.formatMessage(messages.enUS), val: 'en' },
+            { name: propIntl.formatMessage(messages.enUK), val: 'uk' },
+            { name: propIntl.formatMessage(messages.es), val: 'es' },
+          ]}
+          updateLocale={this.props.updateLocale}
+          currentLocale={this.props.currentLocale}
+        />
         <Navbar
           updateView={this.updateView}
           tab_one={'Results'}
@@ -155,11 +180,18 @@ class App extends React.Component {
           tabIndex={this.state.tabIndex}
           hideNav={this.state.hideNav}
           changedProperty={this.state.changedProperty}
+          intl={propIntl}
+          currentLocale={this.props.currentLocale}
         />
         { this.setView() }
       </div>
     );
   }
 }
+App.propTypes = {
+  intl: intlShape,
+  currentLocale: React.PropTypes.string,
+  updateLocale: React.PropTypes.func.isRequired,
+};
 
 export default App;

@@ -12,15 +12,23 @@ module.exports = {
     'react/lib/ReactContext': true
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', 'json']
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin(),
     new ExtractTextPlugin('../css/styles.css')
   ],
   module: {
     loaders: [
+      {
+        test: /\.json$/, loader: 'json'
+      },
       {
         test: /.jsx?$/,
         loader: 'babel-loader',

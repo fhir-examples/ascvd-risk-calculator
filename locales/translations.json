@@ -1,0 +1,728 @@
+{
+  "en": {
+    "appHeader": {
+      "id": "app.header",
+      "defaultMessage": "ASCVD Risk Calculator"
+    },
+    "tabOne": {
+      "id": "app.tab_one",
+      "defaultMessage": "Results"
+    },
+    "tabTwo": {
+      "id": "app.tab_two",
+      "defaultMessage": "Risk Factors"
+    },
+    "tabThree": {
+      "id": "app.tab_three",
+      "defaultMessage": "Recommendations"
+    },
+    "formSex": {
+      "id": "results.sex",
+      "defaultMessage": "Sex"
+    },
+    "formMale": {
+      "id": "results.male",
+      "defaultMessage": "Male"
+    },
+    "formFemale": {
+      "id": "results.female",
+      "defaultMessage": "Female"
+    },
+    "formAge": {
+      "id": "results.age",
+      "defaultMessage": "Age"
+    },
+    "formRace": {
+      "id": "results.race",
+      "defaultMessage": "Race"
+    },
+    "formWhite": {
+      "id": "results.white",
+      "defaultMessage": "White"
+    },
+    "formAfricanAmerican": {
+      "id": "results.african_american",
+      "defaultMessage": "African American"
+    },
+    "formOther": {
+      "id": "results.other",
+      "defaultMessage": "Other"
+    },
+    "formTotalCholesterol": {
+      "id": "results.total_cholesterol",
+      "defaultMessage": "Total Cholesterol (mg/dL)"
+    },
+    "formHdl": {
+      "id": "results.hdl",
+      "defaultMessage": "HDL - Cholesterol (mg/dL)"
+    },
+    "formSysBP": {
+      "id": "results.systolic_blood_pressure",
+      "defaultMessage": "Systolic Blood Pressure"
+    },
+    "formDiabetic": {
+      "id": "results.diabetic",
+      "defaultMessage": "Diabetes"
+    },
+    "formNo": {
+      "id": "results.no",
+      "defaultMessage": "No"
+    },
+    "formYes": {
+      "id": "results.yes",
+      "defaultMessage": "Yes"
+    },
+    "formSmoker": {
+      "id": "results.smoker",
+      "defaultMessage": "Current Smoking"
+    },
+    "formHypertensive": {
+      "id": "results.hypertensive",
+      "defaultMessage": "Treatment for Hypertension"
+    },
+    "formSubmitFirst": {
+      "id": "results.submit_first",
+      "defaultMessage": "See Risk Score"
+    },
+    "formSubmitSecond": {
+      "id": "results.submit_second",
+      "defaultMessage": "Update Risk Score"
+    },
+    "formSBPError": {
+      "id": "form.sbp_error",
+      "defaultMessage": "SBP must be within 90-200 mmHg"
+    },
+    "formTotalCholesterolError": {
+      "id": "form.total_cholesterol_error",
+      "defaultMessage": "Total Cholesterol must be within 130-320 mg/dL"
+    },
+    "formHDLError": {
+      "id": "form.hdl_error",
+      "defaultMessage": "HDL must be within 20-100 mg/dL"
+    },
+    "formRequireSpecifiedFields": {
+      "id": "form.require_specified_fields",
+      "defaultMessage": "The following are required to compute ASCVD risk: "
+    },
+    "formRequireAllFields": {
+      "id": "form.require_all_fields",
+      "defaultMessage": "All fields required to compute ASCVD risk"
+    },
+    "formAgeError": {
+      "id": "form.age_error",
+      "defaultMessage": "Age must be within 20-79"
+    },
+    "graphTitle": {
+      "id": "graph.title",
+      "defaultMessage": "Chance of heart attack or stroke"
+    },
+    "graphPercentLabel": {
+      "id": "graph.percent_label",
+      "defaultMessage": "Percent (%)"
+    },
+    "graphTenYearRiskLabel": {
+      "id": "graph.ten_year_risk_label",
+      "defaultMessage": "10 Year Risk"
+    },
+    "graphLifetimeRiskLabel": {
+      "id": "graph.lifetime_risk_label",
+      "defaultMessage": "Lifetime Risk"
+    },
+    "graphCurrentRiskLabel": {
+      "id": "graph.current_risk_label",
+      "defaultMessage": "Current Risk"
+    },
+    "graphLowestPossibleRiskLabel": {
+      "id": "graph.lowest_possible_risk",
+      "defaultMessage": "Lowest Possible Risk"
+    },
+    "graphPotentialRiskLabel": {
+      "id": "graph.potential_risk",
+      "defaultMessage": "Potential Risk"
+    },
+    "simulatedRiskPrompt": {
+      "id": "simulated.prompt",
+      "defaultMessage": "Explore how different actions could reduce your risk of heart attack or stroke"
+    },
+    "simulatedStatin": {
+      "id": "simulated.statin",
+      "defaultMessage": "Take a statin"
+    },
+    "simulatedSysBP": {
+      "id": "simulated.sys_bp",
+      "defaultMessage": "Control your blood pressure"
+    },
+    "simulatedAspirin": {
+      "id": "simulated.aspirin",
+      "defaultMessage": "Take aspirin every day"
+    },
+    "simulatedSmoking": {
+      "id": "simulated.smoking",
+      "defaultMessage": "Quit smoking"
+    },
+    "riskFactorsSimulatedLifetimeTitle": {
+      "id": "riskFactors.lifetime_title",
+      "defaultMessage": "Simulated Lifetime Risk"
+    },
+    "riskFactorsSimulatedTenYearTitle": {
+      "id": "riskFactors.ten_year_title",
+      "defaultMessage": "Simulated 10 Year Risk"
+    },
+    "recommendationsStatinHeader": {
+      "id": "recommendations.statin_header",
+      "defaultMessage": "Consider a statin"
+    },
+    "recommendationsStatinBody": {
+      "id": "recommendations.statin_body",
+      "defaultMessage": "Statins lower LDL (bad) cholesterol and raise HDL (good) cholesterol in your blood.  Improved cholesterol levels decrease your risk for a heart attack or a stroke.  Discuss the benefits and risks of statins with your doctor."
+    },
+    "recommendationsSmokerHeader": {
+      "id": "recommendations.smoker_header",
+      "defaultMessage": "Quit smoking"
+    },
+    "recommendationsSmokerBody": {
+      "id": "recommendations.smoker_body",
+      "defaultMessage": "Your risk of heart attack or stroke decreases soon after you quit smoking.  Blood flow to the heart and brain is vital, and increases almost immediately after your last cigarette.  Additionally, the rate of plaque build-up in your blood vessels decreases.  Ask your doctor about smoking cessation aids proven to be effective."
+    },
+    "recommendationsAspirinHeader": {
+      "id": "recommendations.aspirin_header",
+      "defaultMessage": "Take an aspirin every day"
+    },
+    "recommendationsAspirinBody": {
+      "id": "recommendations.aspirin_body",
+      "defaultMessage": "Taking an aspirin daily can reduce your risk of heart attacks and strokes, or reduce the severity of such an event.  Your doctor can provide guidance on the recommended daily dose that’s right for you."
+    },
+    "recommendationsSysBPHeader": {
+      "id": "recommendations.sys_bp_header",
+      "defaultMessage": "Control your blood pressure"
+    },
+    "recommendationsSysBPBody": {
+      "id": "recommendations.sys_bp_body",
+      "defaultMessage": "High blood pressure stresses your body’s blood vessels, weakening them and greatly increasing your risk for heart attack or stroke.  Blood pressure medications, weight control, exercise, and managing your sodium intake can all have positive impact on your blood pressure."
+    },
+    "recommendationsExerciseHeader": {
+      "id": "recommendations.exercise_header",
+      "defaultMessage": "Exercise"
+    },
+    "recommendationsExerciseBody": {
+      "id": "recommendations.exercise_body",
+      "defaultMessage": "Regular physical activity helps you control your weight, blood pressure, and cholesterol.  Be sure to consult your doctor before starting an exercise program."
+    },
+    "bannerYears": {
+      "id": "banner.years",
+      "defaultMessage": "{age} yrs"
+    },
+    "bannerMale": {
+      "id": "banner.male",
+      "defaultMessage": "M"
+    },
+    "bannerFemale": {
+      "id": "banner.female",
+      "defaultMessage": "F"
+    },
+    "bannerDOB": {
+      "id": "banner.dob",
+      "defaultMessage": "DOB: "
+    },
+    "language": {
+      "id": "settings.language",
+      "defaultMessage": "Language"
+    },
+    "enUS": {
+      "id": "settings.en_us",
+      "defaultMessage": "US - English"
+    },
+    "enUK": {
+      "id": "settings.en_uk",
+      "defaultMessage": "UK - English"
+    },
+    "es": {
+      "id": "settings.es",
+      "defaultMessage": "Español"
+    }
+  },
+  "es": {
+    "appHeader": {
+      "id": "app.header",
+      "defaultMessage": "Calculadora de riesgo de ECVA"
+    },
+    "tabOne": {
+      "id": "app.tab_one",
+      "defaultMessage": "Resultados"
+    },
+    "tabTwo": {
+      "id": "app.tab_two",
+      "defaultMessage": "Factores de riesgo"
+    },
+    "tabThree": {
+      "id": "app.tab_three",
+      "defaultMessage": "Recomendaciones"
+    },
+    "formSex": {
+      "id": "results.sex",
+      "defaultMessage": "Sexo"
+    },
+    "formMale": {
+      "id": "results.male",
+      "defaultMessage": "Hombre"
+    },
+    "formFemale": {
+      "id": "results.female",
+      "defaultMessage": "Mujer"
+    },
+    "formAge": {
+      "id": "results.age",
+      "defaultMessage": "Edad"
+    },
+    "formRace": {
+      "id": "results.race",
+      "defaultMessage": "Raza"
+    },
+    "formWhite": {
+      "id": "results.white",
+      "defaultMessage": "Blanco"
+    },
+    "formAfricanAmerican": {
+      "id": "results.african_american",
+      "defaultMessage": "Afroamericano"
+    },
+    "formOther": {
+      "id": "results.other",
+      "defaultMessage": "Otro"
+    },
+    "formTotalCholesterol": {
+      "id": "results.total_cholesterol",
+      "defaultMessage": "Colesterol total (mg/dl)"
+    },
+    "formHdl": {
+      "id": "results.hdl",
+      "defaultMessage": "Colesterol HDLl (mg/dl)"
+    },
+    "formSysBP": {
+      "id": "results.systolic_blood_pressure",
+      "defaultMessage": "Presión arterial sistólica"
+    },
+    "formDiabetic": {
+      "id": "results.diabetic",
+      "defaultMessage": "Diabetes"
+    },
+    "formNo": {
+      "id": "results.no",
+      "defaultMessage": "No"
+    },
+    "formYes": {
+      "id": "results.yes",
+      "defaultMessage": "Sí"
+    },
+    "formSmoker": {
+      "id": "results.smoker",
+      "defaultMessage": "Tabaquismo actual"
+    },
+    "formHypertensive": {
+      "id": "results.hypertensive",
+      "defaultMessage": "Tratamiento de la hipertensión"
+    },
+    "formSubmitFirst": {
+      "id": "results.submit_first",
+      "defaultMessage": "Ver Puntuación de riesgo"
+    },
+    "formSubmitSecond": {
+      "id": "results.submit_second",
+      "defaultMessage": "Actualizar Puntuación de riesgo"
+    },
+    "formSBPError": {
+      "id": "form.sbp_error",
+      "defaultMessage": "Los valores admitidos de PAS deben estar comprendidos entre 90 y 200 mmHg."
+    },
+    "formTotalCholesterolError": {
+      "id": "form.total_cholesterol_error",
+      "defaultMessage": "Los valores admitidos de Colesterol total deben estar comprendidos entre 130 y 320 mg/dl."
+    },
+    "formHDLError": {
+      "id": "form.hdl_error",
+      "defaultMessage": "Los valores admitidos de HDL deben estar comprendidos entre 20 y 100 mg/dl."
+    },
+    "formAgeError": {
+      "id": "form.age_error",
+      "defaultMessage": "Los valores de Edad deben estar comprendidos entre 20 y 79 años."
+    },
+    "formRequireSpecifiedFields": {
+      "id": "form.require_specified_fields",
+      "defaultMessage": "Los siguientes elementos son obligatorios para calcular el riesgo cardiovascular: "
+    },
+    "formRequireAllFields": {
+      "id": "form.require_all_fields",
+      "defaultMessage": "Todos los campos son obligatorios para calcular el riesgo cardiovascular"
+    },
+    "graphTitle": {
+      "id": "graph.title",
+      "defaultMessage": "Probabilidad de infarto de miocardio o apoplejía"
+    },
+    "graphPercentLabel": {
+      "id": "graph.percent_label",
+      "defaultMessage": "Porcentaje (%)"
+    },
+    "graphTenYearRiskLabel": {
+      "id": "graph.ten_year_risk_label",
+      "defaultMessage": "Riesgo en 10 años"
+    },
+    "graphLifetimeRiskLabel": {
+      "id": "graph.lifetime_risk_label",
+      "defaultMessage": "Riesgo vitalicio"
+    },
+    "graphCurrentRiskLabel": {
+      "id": "graph.current_risk_label",
+      "defaultMessage": "Riesgo actual"
+    },
+    "graphLowestPossibleRiskLabel": {
+      "id": "graph.lowest_possible_risk",
+      "defaultMessage": "Riesgo mínimo posible"
+    },
+    "graphPotentialRiskLabel": {
+      "id": "graph.potential_risk",
+      "defaultMessage": "Riesgo potencial"
+    },
+    "simulatedRiskPrompt": {
+      "id": "simulated.prompt",
+      "defaultMessage": "Vea cómo pueden contribuir una serie de acciones a reducir el riesgo de infarto de miocardio o apoplejía"
+    },
+    "simulatedStatin": {
+      "id": "simulated.statin",
+      "defaultMessage": "Tomar una estatina"
+    },
+    "simulatedSysBP": {
+      "id": "simulated.sys_bp",
+      "defaultMessage": "Controlar la presión arterial"
+    },
+    "simulatedAspirin": {
+      "id": "simulated.aspirin",
+      "defaultMessage": "Tomar una aspirina cada día"
+    },
+    "simulatedSmoking": {
+      "id": "simulated.smoking",
+      "defaultMessage": "Dejar de fumar"
+    },
+    "riskFactorsSimulatedLifetimeTitle": {
+      "id": "riskFactors.lifetime_title",
+      "defaultMessage": "Riesgo vitalicio simulado"
+    },
+    "riskFactorsSimulatedTenYearTitle": {
+      "id": "riskFactors.ten_year_title",
+      "defaultMessage": "Riesgo en 10 años simulado"
+    },
+    "recommendationsStatinHeader": {
+      "id": "recommendations.statin_header",
+      "defaultMessage": "Considerar la posibilidad de tomar una estatina"
+    },
+    "recommendationsStatinBody": {
+      "id": "recommendations.statin_body",
+      "defaultMessage": "Las estatinas reducen el colesterol LDL (malo) y aumentan el HDL (bueno) en la sangre.  Al mejorar los niveles de colesterol se reduce el riesgo de infarto de miocardio o apoplejía.  Comente con su médico los riesgos y beneficios de las estatinas."
+    },
+    "recommendationsSmokerHeader": {
+      "id": "recommendations.smoker_header",
+      "defaultMessage": "Dejar de fumar"
+    },
+    "recommendationsSmokerBody": {
+      "id": "recommendations.smoker_body",
+      "defaultMessage": "El riesgo de infarto de miocardio o apoplejía se reduce al poco tiempo de dejar de fumar.  La circulación sanguínea al corazón y al cerebro es vital y aumenta casi inmediatamente después de fumar el último cigarrillo.  Además, se reduce el índice de formación de placas ateromatosas en los vasos sanguíneos.  Pregúntele a su médico acerca de los métodos que han resultado ser más efectivos para dejar de fumar."
+    },
+    "recommendationsAspirinHeader": {
+      "id": "recommendations.aspirin_header",
+      "defaultMessage": "Tomar una aspirina cada día"
+    },
+    "recommendationsAspirinBody": {
+      "id": "recommendations.aspirin_body",
+      "defaultMessage": "Tomar una aspirina cada día puede reducir el riesgo de infarto de miocardio y apoplejía o reducir su gravedad.  Su médico le podrá orientar y recomendarle la dosis diaria más adecuada para usted."
+    },
+    "recommendationsSysBPHeader": {
+      "id": "recommendations.sys_bp_header",
+      "defaultMessage": "Controlar la presión arterial"
+    },
+    "recommendationsSysBPBody": {
+      "id": "recommendations.sys_bp_body",
+      "defaultMessage": "La presión arterial alta sobrecarga los vasos sanguíneos y los debilita, por lo que aumenta de forma considerable el riesgo de infarto de miocardio o apoplejía.  Los antihipertensores, controlar el peso, hacer ejercicio y controlar la ingesta de sodio pueden tener un efecto positivo sobre la tensión arterial."
+    },
+    "recommendationsExerciseHeader": {
+      "id": "recommendations.exercise_header",
+      "defaultMessage": "Hacer ejercicio"
+    },
+    "recommendationsExerciseBody": {
+      "id": "recommendations.exercise_body",
+      "defaultMessage": "La actividad física habitual puede ayudarle a controlar el peso, la presión arterial y el colesterol.  Consulte a su médico antes de iniciar un programa de ejercicio."
+    },
+    "bannerYears": {
+      "id": "banner.years",
+      "defaultMessage": "{age} años"
+    },
+    "bannerMale": {
+      "id": "banner.male",
+      "defaultMessage": "H"
+    },
+    "bannerFemale": {
+      "id": "banner.female",
+      "defaultMessage": "M"
+    },
+    "bannerDOB": {
+      "id": "banner.dob",
+      "defaultMessage": "Fecha de nacimiento: "
+    },
+    "language": {
+      "id": "settings.language",
+      "defaultMessage": "Idioma"
+    },
+    "enUS": {
+      "id": "settings.en_us",
+      "defaultMessage": "EE. UU. - Inglés"
+    },
+    "enUK": {
+      "id": "settings.en_uk",
+      "defaultMessage": "Reino Unido - Inglés"
+    },
+    "es": {
+      "id": "settings.es",
+      "defaultMessage": "Español"
+    }
+  },
+  "en-GB": {
+    "appHeader": {
+      "id": "app.header",
+      "defaultMessage": "ASCVD Risk Calculator"
+    },
+    "tabOne": {
+      "id": "app.tab_one",
+      "defaultMessage": "Results"
+    },
+    "tabTwo": {
+      "id": "app.tab_two",
+      "defaultMessage": "Risk Factors"
+    },
+    "tabThree": {
+      "id": "app.tab_three",
+      "defaultMessage": "Recommendations"
+    },
+    "formSex": {
+      "id": "results.sex",
+      "defaultMessage": "Gender"
+    },
+    "formMale": {
+      "id": "results.male",
+      "defaultMessage": "Male"
+    },
+    "formFemale": {
+      "id": "results.female",
+      "defaultMessage": "Female"
+    },
+    "formAge": {
+      "id": "results.age",
+      "defaultMessage": "Age"
+    },
+    "formRace": {
+      "id": "results.race",
+      "defaultMessage": "Race"
+    },
+    "formWhite": {
+      "id": "results.white",
+      "defaultMessage": "White"
+    },
+    "formAfricanAmerican": {
+      "id": "results.african_american",
+      "defaultMessage": "African American"
+    },
+    "formOther": {
+      "id": "results.other",
+      "defaultMessage": "Other"
+    },
+    "formTotalCholesterol": {
+      "id": "results.total_cholesterol",
+      "defaultMessage": "Total Cholesterol (mg/dL)"
+    },
+    "formHdl": {
+      "id": "results.hdl",
+      "defaultMessage": "HDL - Cholesterol (mg/dL)"
+    },
+    "formSysBP": {
+      "id": "results.systolic_blood_pressure",
+      "defaultMessage": "Systolic Blood Pressure"
+    },
+    "formDiabetic": {
+      "id": "results.diabetic",
+      "defaultMessage": "Diabetes"
+    },
+    "formNo": {
+      "id": "results.no",
+      "defaultMessage": "No"
+    },
+    "formYes": {
+      "id": "results.yes",
+      "defaultMessage": "Yes"
+    },
+    "formSmoker": {
+      "id": "results.smoker",
+      "defaultMessage": "Current Smoking"
+    },
+    "formHypertensive": {
+      "id": "results.hypertensive",
+      "defaultMessage": "Treatment for Hypertension"
+    },
+    "formSubmitFirst": {
+      "id": "results.submit_first",
+      "defaultMessage": "See Risk Score"
+    },
+    "formSubmitSecond": {
+      "id": "results.submit_second",
+      "defaultMessage": "Update Risk Score"
+    },
+    "formSBPError": {
+      "id": "form.sbp_error",
+      "defaultMessage": "SBP must be within 90-200 mmHg"
+    },
+    "formTotalCholesterolError": {
+      "id": "form.total_cholesterol_error",
+      "defaultMessage": "Total Cholesterol must be within 130-320 mg/dL"
+    },
+    "formHDLError": {
+      "id": "form.hdl_error",
+      "defaultMessage": "HDL must be within 20-100 mg/dL"
+    },
+    "formAgeError": {
+      "id": "form.age_error",
+      "defaultMessage": "Age must be within 20-79"
+    },
+    "formRequireSpecifiedFields": {
+      "id": "form.require_specified_fields",
+      "defaultMessage": "The following are required to compute ASCVD risk: "
+    },
+    "formRequireAllFields": {
+      "id": "form.require_all_fields",
+      "defaultMessage": "All fields required to compute ASCVD risk"
+    },
+    "graphTitle": {
+      "id": "graph.title",
+      "defaultMessage": "Chance of heart attack or stroke"
+    },
+    "graphPercentLabel": {
+      "id": "graph.percent_label",
+      "defaultMessage": "Percent (%)"
+    },
+    "graphTenYearRiskLabel": {
+      "id": "graph.ten_year_risk_label",
+      "defaultMessage": "10 Year Risk"
+    },
+    "graphLifetimeRiskLabel": {
+      "id": "graph.lifetime_risk_label",
+      "defaultMessage": "Lifetime Risk"
+    },
+    "graphCurrentRiskLabel": {
+      "id": "graph.current_risk_label",
+      "defaultMessage": "Current Risk"
+    },
+    "graphLowestPossibleRiskLabel": {
+      "id": "graph.lowest_possible_risk",
+      "defaultMessage": "Lowest Possible Risk"
+    },
+    "graphPotentialRiskLabel": {
+      "id": "graph.potential_risk",
+      "defaultMessage": "Potential Risk"
+    },
+    "simulatedRiskPrompt": {
+      "id": "simulated.prompt",
+      "defaultMessage": "Explore how different actions could reduce your risk of heart attack or stroke"
+    },
+    "simulatedStatin": {
+      "id": "simulated.statin",
+      "defaultMessage": "Take a statin"
+    },
+    "simulatedSysBP": {
+      "id": "simulated.sys_bp",
+      "defaultMessage": "Control your blood pressure"
+    },
+    "simulatedAspirin": {
+      "id": "simulated.aspirin",
+      "defaultMessage": "Take aspirin every day"
+    },
+    "simulatedSmoking": {
+      "id": "simulated.smoking",
+      "defaultMessage": "Quit smoking"
+    },
+    "riskFactorsSimulatedLifetimeTitle": {
+      "id": "riskFactors.lifetime_title",
+      "defaultMessage": "Simulated Lifetime Risk"
+    },
+    "riskFactorsSimulatedTenYearTitle": {
+      "id": "riskFactors.ten_year_title",
+      "defaultMessage": "Simulated 10 Year Risk"
+    },
+    "recommendationsStatinHeader": {
+      "id": "recommendations.statin_header",
+      "defaultMessage": "Consider a Statin"
+    },
+    "recommendationsStatinBody": {
+      "id": "recommendations.statin_body",
+      "defaultMessage": "Statins lower LDL (bad) cholesterol and raise HDL (good) cholesterol in your blood.  Improved cholesterol levels decrease your risk for a heart attack or a stroke.  Discuss the benefits and risks of statins with your clinician."
+    },
+    "recommendationsSmokerHeader": {
+      "id": "recommendations.smoker_header",
+      "defaultMessage": "Quit smoking"
+    },
+    "recommendationsSmokerBody": {
+      "id": "recommendations.smoker_body",
+      "defaultMessage": "Your risk of heart attack or stroke decreases soon after you stop smoking.  Blood flow to the heart and brain is vital, and increases almost immediately after your last cigarette.  Additionally, the rate of plaque build-up in your blood vessels decreases.  Ask your clinician about smoking cessation aids proven to be effective."
+    },
+    "recommendationsAspirinHeader": {
+      "id": "recommendations.aspirin_header",
+      "defaultMessage": "Take an aspirin every day"
+    },
+    "recommendationsAspirinBody": {
+      "id": "recommendations.aspirin_body",
+      "defaultMessage": "Taking an aspirin daily can reduce your risk of heart attacks and strokes, or reduce the severity of such an event.  Your clinician can provide guidance on the recommended daily dose thatâ€™s right for you."
+    },
+    "recommendationsSysBPHeader": {
+      "id": "recommendations.sys_bp_header",
+      "defaultMessage": "Control your blood pressure"
+    },
+    "recommendationsSysBPBody": {
+      "id": "recommendations.sys_bp_body",
+      "defaultMessage": "High blood pressure stresses your bodyâ€™s blood vessels, weakening them and greatly increasing your risk for heart attack or stroke.  Blood pressure medications, weight control, exercise, and managing your sodium intake can all have positive impact on your blood pressure."
+    },
+    "recommendationsExerciseHeader": {
+      "id": "recommendations.exercise_header",
+      "defaultMessage": "Exercise"
+    },
+    "recommendationsExerciseBody": {
+      "id": "recommendations.exercise_body",
+      "defaultMessage": "Regular physical activity helps you control your weight, blood pressure, and cholesterol.  Be sure to consult your clinician before starting an exercise programme."
+    },
+    "bannerYears": {
+      "id": "banner.years",
+      "defaultMessage": "{age} yrs"
+    },
+    "bannerMale": {
+      "id": "banner.male",
+      "defaultMessage": "M"
+    },
+    "bannerFemale": {
+      "id": "banner.female",
+      "defaultMessage": "F"
+    },
+    "bannerDOB": {
+      "id": "banner.dob",
+      "defaultMessage": "DOB: "
+    },
+    "language": {
+      "id": "settings.language",
+      "defaultMessage": "Language"
+    },
+    "enUS": {
+      "id": "settings.en_us",
+      "defaultMessage": "US - English"
+    },
+    "enUK": {
+      "id": "settings.en_uk",
+      "defaultMessage": "UK - English"
+    },
+    "es": {
+      "id": "settings.es",
+      "defaultMessage": "Español"
+    }
+  }
+}

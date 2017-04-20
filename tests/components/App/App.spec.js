@@ -2,6 +2,8 @@ jest.mock('../../../app/load_fhir_data');
 
 import React from 'react';
 import { shallow, render, mount } from 'enzyme';
+import { intlShape } from 'react-intl';
+import { mountWithIntl } from '../../helpers/intl-enzyme-test-helper';
 import ASCVDRisk from '../../../app/load_fhir_data';
 import App from '../../../components/App/app';
 import PatientBanner from '../../../components/PatientBanner/banner';
@@ -12,23 +14,33 @@ import RiskFactors from '../../../views/RiskFactors/index';
 import Recommendations from '../../../views/Recommendations/index';
 
 describe('<App />', () => {
+
   let wrapper;
   let updateChangedProperty = jest.fn();
   let updateRiskScores = jest.fn();
   let updateView = jest.fn();
+  let updateLocale = jest.fn();
+  let currentLocale = 'en';
 
   beforeEach(() => {
-    wrapper = shallow(<App />);
+    updateLocale = jest.fn();
+    wrapper = mountWithIntl(<App updateLocale={updateLocale}
+                                 currentLocale={currentLocale} />);
   });
 
   it('should have state', () => {
-    expect(wrapper.state('hideNav')).toBeTruthy();
+    expect(wrapper.state().hideNav).toBeTruthy();
     expect(wrapper.state('view')).toEqual('Results');
     expect(wrapper.state('tabIndex')).toEqual(0);
     expect(wrapper.state('riskScore')).toEqual(undefined);
     expect(wrapper.state('lifetimeScore')).toEqual(undefined);
     expect(wrapper.state('changedProperty')).toBeFalsy();
     expect(wrapper.state('options')).toEqual([]);
+  });
+
+  it('should have props', () => {
+    expect(wrapper.props().currentLocale).toBeDefined();
+    expect(wrapper.props().updateLocale).toBeDefined();
   });
 
   it('should render all components for the main view', () => {
@@ -40,7 +52,8 @@ describe('<App />', () => {
 
   describe('updating state', () => {
     beforeEach(() => {
-      wrapper = mount(<App />);
+      wrapper = mountWithIntl(<App updateLocale={updateLocale}
+                                   currentLocale={currentLocale} />);
     });
 
     it('should execute updateRiskScores callback function and update state', () => {

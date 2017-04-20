@@ -1,4 +1,5 @@
 import React from 'react';
+import { intlShape } from 'react-intl';
 import GraphBar from '../GraphBar/graph_bar';
 import styles from './graph.css';
 
@@ -29,10 +30,7 @@ class Graph extends React.Component {
    * @returns {boolean} - Value to hide the bar or not
    */
   static shouldHide(score) {
-    if (score === null) {
-      return true;
-    }
-    return false;
+    return score === null;
   }
 
   constructor(props) {
@@ -46,10 +44,7 @@ class Graph extends React.Component {
    * @returns {boolean} - Value to indicate only one score is available
    */
   isOnlyOneScore() {
-    if (this.props.tenYearScore === null || this.props.lifetimeScore === null) {
-      return true;
-    }
-    return false;
+    return this.props.tenYearScore === null || this.props.lifetimeScore === null;
   }
 
   /**
@@ -76,18 +71,20 @@ class Graph extends React.Component {
   }
 
   render() {
+    const propIntl = this.props.intl;
+    const messages = propIntl.messages;
     return (
       <div className={styles.container}>
         <div className={styles.inner}>
-          <div className={styles['graph-title']}>Chance of heart attack or stroke</div>
-          <div className={styles.label}>Percent (%)</div>
+          <div className={styles['graph-title']}>{propIntl.formatMessage(messages.graphTitle)}</div>
+          <div className={styles.label}>{propIntl.formatMessage(messages.graphPercentLabel)}</div>
           <div className={styles.yaxis}>
-            <div className={styles['first-increment']}>100</div>
-            <div className={styles['middle-increments']}>80</div>
-            <div className={styles['middle-increments']}>60</div>
-            <div className={styles['middle-increments']}>40</div>
-            <div className={styles['last-increment']}>20</div>
-            <div className={styles['zero-increment']}>0</div>
+            <div className={styles['first-increment']}>{propIntl.formatNumber(100)}</div>
+            <div className={styles['middle-increments']}>{propIntl.formatNumber(80)}</div>
+            <div className={styles['middle-increments']}>{propIntl.formatNumber(60)}</div>
+            <div className={styles['middle-increments']}>{propIntl.formatNumber(40)}</div>
+            <div className={styles['last-increment']}>{propIntl.formatNumber(20)}</div>
+            <div className={styles['zero-increment']}>{propIntl.formatNumber(0)}</div>
           </div>
           <div className={styles['graph-border']}>
             <div className={styles['bar-container']}>
@@ -100,13 +97,15 @@ class Graph extends React.Component {
                   barColor={''}
                   percent={this.props.tenYearScore}
                   width={this.props.width}
+                  intl={propIntl}
                 />
                 <GraphBar
                   barColor={'#FF9733'}
                   percent={this.props.tenYearBest}
                   width={this.props.width}
+                  intl={propIntl}
                 />
-                <div className={styles['bar-label']}>10 Year Risk</div>
+                <div className={styles['bar-label']}>{propIntl.formatMessage(messages.graphTenYearRiskLabel)}</div>
               </div>
               <div
                 className={Graph.shouldHide(this.props.lifetimeScore) ?
@@ -117,21 +116,23 @@ class Graph extends React.Component {
                   barColor={''}
                   percent={this.props.lifetimeScore}
                   width={this.props.width}
+                  intl={propIntl}
                 />
                 <GraphBar
                   barColor={'#FF9733'}
                   percent={this.props.lifetimeBest}
                   width={this.props.width}
+                  intl={propIntl}
                 />
-                <div className={styles['bar-label']}>Lifetime Risk</div>
+                <div className={styles['bar-label']}>{propIntl.formatMessage(messages.graphLifetimeRiskLabel)}</div>
               </div>
             </div>
           </div>
           <div className={styles['legend-container']}>
             <div className={styles['legend-bar']} style={Graph.setColor('')} />
-            <div className={styles['legend-label']}>Current Risk</div>
+            <div className={styles['legend-label']}>{propIntl.formatMessage(messages.graphCurrentRiskLabel)}</div>
             <div className={styles['legend-bar']} style={Graph.setColor('#FF9733')} />
-            <div className={styles['legend-label']}>Lowest Possible Risk</div>
+            <div className={styles['legend-label']}>{propIntl.formatMessage(messages.graphLowestPossibleRiskLabel)}</div>
           </div>
         </div>
       </div>
@@ -144,6 +145,7 @@ Graph.propTypes = {
   tenYearScore: React.PropTypes.number,
   lifetimeBest: React.PropTypes.number,
   lifetimeScore: React.PropTypes.number,
+  intl: intlShape,
 };
 
 export default Graph;

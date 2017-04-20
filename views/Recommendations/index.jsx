@@ -1,4 +1,5 @@
 import React from 'react';
+import { intlShape } from 'react-intl';
 import ASCVDRisk from '../../app/load_fhir_data';
 import DetailBox from '../../components/DetailBox/detail_box';
 import styles from './index.css';
@@ -26,51 +27,46 @@ class Recommendations extends React.Component {
   }
 
   render() {
+    const propIntl = this.props.intl;
+    const messages = propIntl.messages;
     return (
       <div className={styles.container}>
         <div id={'recSmoker'} className={Recommendations.shouldHide('smoker')}>
           <DetailBox
-            boxHeader={'Quit smoking'}
-            boxBody={`Your risk of heart attack or stroke decreases soon after you quit smoking.
-              Blood flow to the heart and brain is vital, and increases almost immediately after your last
-              cigarette. Additionally, the rate of plaque build-up in your blood vessels decreases. Ask your
-              doctor about smoking cessation aids proven to be effective.`}
+            boxHeader={propIntl.formatMessage(messages.recommendationsSmokerHeader)}
+            boxBody={propIntl.formatMessage(messages.recommendationsSmokerBody)}
           />
         </div>
         <div id={'recStatin'}>
           <DetailBox
-            boxHeader={'Consider a statin'}
-            boxBody={`Statins lower LDL (bad) cholesterol and raise HDL (good) cholesterol in your blood.
-              Improved cholesterol levels decrease your risk for a heart attack or a stroke. Discuss the benefits
-              and risks of statins with your doctor.`}
+            boxHeader={propIntl.formatMessage(messages.recommendationsStatinHeader)}
+            boxBody={propIntl.formatMessage(messages.recommendationsStatinBody)}
           />
         </div>
         <div id={'recAspirin'}>
           <DetailBox
-            boxHeader={'Take an aspirin every day'}
-            boxBody={`Taking an aspirin daily can reduce your risk of heart attacks and strokes, or reduce
-              the severity of such an event. Your doctor can provide guidance on the recommended daily dose that’s
-              right for you.`}
+            boxHeader={propIntl.formatMessage(messages.recommendationsAspirinHeader)}
+            boxBody={propIntl.formatMessage(messages.recommendationsAspirinBody)}
           />
         </div>
         <div id={'recBP'}>
           <DetailBox
-            boxHeader={'Control your blood pressure'}
-            boxBody={`High blood pressure stresses your body’s blood vessels, weakening them and greatly
-              increasing your risk for heart attack or stroke. Blood pressure medications, weight control,
-              exercise, and managing your sodium intake can all have positive impact on your blood pressure.`}
+            boxHeader={propIntl.formatMessage(messages.recommendationsSysBPHeader)}
+            boxBody={propIntl.formatMessage(messages.recommendationsSysBPBody)}
           />
         </div>
         <div id={'recExercise'}>
           <DetailBox
-            boxHeader={'Exercise'}
-            boxBody={`Regular physical activity helps you control your weight, blood pressure, and cholesterol.
-              Be sure to consult your doctor before starting an exercise program.`}
+            boxHeader={propIntl.formatMessage(messages.recommendationsExerciseHeader)}
+            boxBody={propIntl.formatMessage(messages.recommendationsExerciseBody)}
           />
         </div>
       </div>
     );
   }
 }
+Recommendations.propTypes = {
+  intl: intlShape,
+};
 
 export default Recommendations;

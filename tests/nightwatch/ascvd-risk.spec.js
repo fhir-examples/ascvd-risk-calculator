@@ -1,6 +1,7 @@
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 
 const screenshot = require('terra-toolkit').screenshot;
+require('intl');
 
 module.exports = {
   afterEach: (browser, done) => {
@@ -108,7 +109,7 @@ module.exports = {
     browser
       .url(`http://localhost:${browser.globals.webpackDevServerPort}/results.html`)
       .assert.elementPresent('#formDiabetic .button_form__required')
-      .assert.containsText('.send_form__right', 'Diabetes status is required to compute ASCVD risk');
+      .assert.containsText('.send_form__right', 'The following are required to compute ASCVD risk: Diabetes');
   },
 
   'Handles workflow of submitting the form accordingly': (browser) => {
@@ -162,7 +163,7 @@ module.exports = {
     browser
       .url(`http://localhost:${browser.globals.webpackDevServerPort}/riskfactors.html`)
       .click('label[for="option_two"] input')
-      .click('#formSex .button_form__right input')
+      .click('#formSex .button_form__right button')
       .clearValue('#formAge .input_text_form__text-entry')
       .setValue('#formAge .input_text_form__text-entry', '75')
       .click('.send_form__active')
@@ -235,6 +236,8 @@ module.exports = {
   'Recommendations view with content': (browser) => {
     browser
       .url(`http://localhost:${browser.globals.webpackDevServerPort}/recommendations.html`)
+      .click('.send_form__active')
+      .click('.navbar__three')
       .assert.containsText('#recSmoker .detail_box__title', 'Quit smoking')
       .assert.containsText('#recSmoker .detail_box__description', 'Your risk of heart attack or stroke decreases ' +
       'soon after you quit smoking. Blood flow to the heart and brain is vital, and increases ' +
@@ -262,5 +265,54 @@ module.exports = {
       .click('#recSmoker .detail_box__header')
       .assert.hidden('#recSmoker .detail_box__description')
       .assert.visible('#recSmoker .detail_box__title');
-  }
+  },
+
+  'Translations Screenshots': (browser) => {
+    browser
+      .url(`http://localhost:${browser.globals.webpackDevServerPort}/translations.html`)
+      .click('.header__settings').click('input[name="locales"]:first-of-type').click('.header__settings')
+        .saveScreenshot('screenshots/en-US/Results/AllError.png').click('.header__label:nth-of-type(2) > input').click('.header__settings')
+        .saveScreenshot('screenshots/en-GB/Results/AllError.png').click('.header__label:nth-of-type(3) > input').click('.header__settings')
+        .saveScreenshot('screenshots/es/Results/AllError.png').click('.header__settings')
+      .clearValue('#formSysBP .input_text_form__text-entry')
+      .setValue('#formSysBP .input_text_form__text-entry', '145')
+        .saveScreenshot('screenshots/es/Results/WithoutSBPError.png').click('.header__settings').click('input[name="locales"]:first-of-type')
+        .saveScreenshot('screenshots/en-US/Results/WithoutSBPError.png').click('.header__settings').click('.header__label:nth-of-type(2) > input')
+        .saveScreenshot('screenshots/en-GB/Results/WithoutSBPError.png')
+      .clearValue('#formAge .input_text_form__text-entry')
+      .setValue('#formAge .input_text_form__text-entry', '45')
+      .clearValue('#formSysBP .input_text_form__text-entry')
+      .setValue('#formSysBP .input_text_form__text-entry', '3')
+        .saveScreenshot('screenshots/en-GB/Results/WithSBPError.png').click('.header__settings').click('input[name="locales"]:first-of-type')
+        .saveScreenshot('screenshots/en-US/Results/WithSBPError.png').click('.header__settings').click('.header__label:nth-of-type(3) > input')
+        .saveScreenshot('screenshots/es/Results/WithSBPError.png')
+      .clearValue('#formHdl .input_text_form__text-entry')
+      .setValue('#formHdl .input_text_form__text-entry', '56')
+      .clearValue('#formTotalCholesterol .input_text_form__text-entry')
+      .setValue('#formTotalCholesterol .input_text_form__text-entry', '178')
+      .clearValue('#formSysBP .input_text_form__text-entry')
+      .setValue('#formSysBP .input_text_form__text-entry', '167')
+      .click('#formSex .button_form__right button')
+      .click('#formDiabetic .button_form__right button')
+      .click('#formSmoker .button_form__right button')
+      .click('#formHypertensive .button_form__right button')
+      .click('label[for="option_three"] input')
+      .click('.send_form__active')
+      .click('.navbar__one')
+        .saveScreenshot('screenshots/es/Results/UpdateRiskScore.png').click('.header__settings').click('input[name="locales"]:first-of-type')
+        .saveScreenshot('screenshots/en-US/Results/UpdateRiskScore.png').click('.header__settings').click('.header__label:nth-of-type(2) > input')
+        .saveScreenshot('screenshots/en-GB/Results/UpdateRiskScore.png')
+      .click('.navbar__two')
+        .saveScreenshot('screenshots/en-GB/RiskFactors/DefaultGraphs.png').click('.header__settings').click('input[name="locales"]:first-of-type')
+        .saveScreenshot('screenshots/en-US/RiskFactors/DefaultGraphs.png').click('.header__settings').click('.header__label:nth-of-type(3) > input')
+        .saveScreenshot('screenshots/es/RiskFactors/DefaultGraphs.png')
+      .click('label[for="smoker"] input')
+        .saveScreenshot('screenshots/es/RiskFactors/WithPotentialRiskLabel.png').click('.header__settings').click('input[name="locales"]:first-of-type')
+        .saveScreenshot('screenshots/en-US/RiskFactors/WithPotentialRiskLabel.png').click('.header__settings').click('.header__label:nth-of-type(2) > input')
+        .saveScreenshot('screenshots/en-GB/RiskFactors/WithPotentialRiskLabel.png')
+      .click('.navbar__three')
+        .saveScreenshot('screenshots/en-GB/Recommendations/DefaultRecommendations.png').click('.header__settings').click('input[name="locales"]:first-of-type')
+        .saveScreenshot('screenshots/en-US/Recommendations/DefaultRecommendations.png').click('.header__settings').click('.header__label:nth-of-type(3) > input')
+        .saveScreenshot('screenshots/es/Recommendations/DefaultRecommendations.png');
+  },
 };

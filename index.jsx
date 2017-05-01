@@ -6,6 +6,11 @@ import './app/polyfill';
 
 ASCVDRisk.fetchPatientData().then(
   () => {
+    const spinnerNode = document.getElementById('loadingSpinner');
+    while (spinnerNode.firstChild) {
+      spinnerNode.removeChild(spinnerNode.firstChild);
+    }
+    spinnerNode.parentNode.removeChild(spinnerNode);
     ReactDOM.render(<App />, document.getElementById('container'));
   },
 );
